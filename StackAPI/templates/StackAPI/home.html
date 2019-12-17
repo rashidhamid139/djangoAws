@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HomePage</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" />
+    </head>
+
+    <body >
+        <style>
+         body {
+            font-family: "Roboto", sans-serif;
+            font-size: 20px;
+            background-color:  #cceeff;
+        }
+        .success {background-color: #4CAF50;}
+        .shadow {
+            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+        }
+        .btn-danger {
+            color: #fff;
+            background-color: #f00000;
+            border-color: #dc281e;
+        }
+        .masthead {
+            background: #3398E1;
+            height: auto;
+            padding-bottom: 15px;
+            box-shadow: 0 16px 48px #E3E7EB;
+            padding-top: 10px;
+        }
+        .red-text {
+            color: blue;
+        }
+        </style>
+        {% for val in contacts %}
+            <div class="container-fluid">
+                <label>
+                    <h2 class="red-text" color="blue">Section</h2>
+                </label>
+                <hr>
+                    <div class="container-fluid">
+                        <label></label>
+                        <span >
+
+                            <ul class="label success">Tags
+                                <li>{{val.tags }}</li>
+                            </ul>
+                        </span>
+                        <span >
+                            <p></p>
+                            <span class="label success">Owner</span>
+                            <p>
+                                <ul>
+                                    <li class="container-fluid">Reputation: {{val.owner.reputation}}</li>
+                                    <li class="container-fluid">User_ID: {{val.owner.user_id}}</li>
+                                    <li class="container-fluid">User_type: {{val.owner.user_type}}</li>
+                                    <li class="container-fluid">Image_url: {{val.owner.profile_image}}</li>
+                                    <li class="container-fluid">Display_name: {{val.owner.display_name}}</li>
+                                    <li class="container-fluid">Display_name: {{val.owner.link}}</li>
+                                </ul>
+                            </p>
+
+                        </span>
+
+                    <div>
+                    <span>
+                    <p>
+
+                        <ul  class="label success">View_count: {{val.view_count}}</ul>
+                        <ul class="label success">Answer_count: {{val.answer_count}}</ul>
+                        <ul  class="label success">Score: {{val.score}}</ul>
+                        <ul class="label success">Last_activity_date: {{val.last_activity_date}}</ul>
+                        <ul  class="label success">Creation_Date: {{val.owner.is_answered}}</ul>
+                        <ul  class="label success">Creation_Date: {{val.creation_date}}</ul>
+                        <ul  class="label success">Last_edit_date: {{val.last_edit_date}}</ul>
+                        <ul  class="label success">Link: {{val.link}}</ul>
+                        <ul  class="label success">Question_id: {{val.title}}</ul>
+                    </p>
+
+                    </span>
+
+            </div>
+        {% endfor %}
+
+
+        <hr>
+    <div class="w3-bar">
+        <span class="step-links">
+            {% if contacts.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href=">page ={{ contacts.previous_page_number }}">Previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ contacts.number }} of  {{ contacts.paginator.num_pages }}
+            </span>
+            {% if contacts.has_next %}
+                <a href="?page={{contacts.next_page_number }}">next</a>
+                <a href="?page{{contacts.paginator.num_pages}}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <body>
+
+</html>
