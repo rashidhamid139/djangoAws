@@ -74,10 +74,10 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'raskfbod',
-        'USER': 'raskfbod',
-        'PASSWORD': 'IGAzUUYeyThEbZZo9x10qJjL3l3c3ElC',
-        'HOST':'john.db.elephantsql.com',
+        'NAME': 'wjoquhlk',
+        'USER': 'wjoquhlk',
+        'PASSWORD': 'OuDYk_gLRdKM5T8FwXvM5iXfDYEZbf35',
+        'HOST':'rajje.db.elephantsql.com',
         'POST':'5432',
 
     }
@@ -107,7 +107,13 @@ AUTH_PASSWORD_VALIDATORS = [
 CACHES = {
    'default': {
       'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-      'LOCATION': 'cachetable',
+      'LOCATION': 'cachetable1',
+       'TIMEOUT': 500,
+       'OPTIONS': {
+           'MAX_ENTRIES': 10,
+           'CULL_FREQUENCY': 2,
+       }
+
    }
 }
 
